@@ -30,7 +30,7 @@ class ContainersController extends Controller {
 		return ['success' => true, 'data' => Container::create($request->only(['name']))];
 	}
 
-	public function update($id)
+	public function update($id, Request $request)
 	{
 		if( !$request->has('name') )
 		{
