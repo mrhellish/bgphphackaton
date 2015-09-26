@@ -31,8 +31,10 @@ class CoordinatesController extends Controller {
 		return $return;
 	}
 
-	public function create($name, Request $request)
+	public function create($name)
 	{
+		$request = app(Request::class);
+		
 		if( !$request->has('longitude') || !$request->has('latitude') )
 			return ['success' => false, 'error' => 'No name longitude and/or latitude.'];
 
