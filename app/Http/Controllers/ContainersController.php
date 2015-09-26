@@ -17,27 +17,36 @@ class ContainersController extends Controller {
 	{
 		$container = Container::find($id);
 
+		if( !$container )
+			return $this->respondError('Container does not exist.');
+
 		return $container;
 	}
 
 	public function create(Request $request)
 	{
 		if( !$request->has('name') )
-		{
-			return ['success' => false, 'error' => 'No name provided.'];
-		}
+			return $this->respondError('No name provided.');
 
-		return ['success' => true, 'data' => Container::create($request->only(['name']))];
+		$container = Container::create($request->only(['name']));
+
+		if( !$container )
+			return $this->respondError('Could not create a container.');
+
+		return $this->respondSuccess($container);
 	}
 
 	public function update($id, Request $request)
 	{
 		if( !$request->has('name') )
-		{
-			return ['success' => false, 'error' => 'No name provided.'];
-		}
+			return $this->respondError('No name provided.');
 
-		return ['success' => true, 'data' => Container::find($id)->update($request->only(['name']))];
+		$container = Container::find($id);
+
+		if( !$container )
+			return $this->respondError('Container does not exist.');
+
+		return $this->respondSuccess($container->update(['name']));
 	}
 
 	public function destroy($id)
