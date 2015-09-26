@@ -12,7 +12,7 @@ Since most of us have had the unpleasant experience of working with APIs with po
 You can format the request/response any way you like. For example, you can return the GPS coordinates for the second call as an array of two strings, encoded in json, or you can choose to use some form of special formatting - it's all up to your team's decision. Our sponsors from KYUP have provided free accounts for their LXC-based cloud service, where you can spawn a new virtual container to host your API.
 
 
-h2. Conventions
+## Conventions
 
 * MySQL Table Fields:
 ** <tablename>_id - Row ID
@@ -21,7 +21,7 @@ h2. Conventions
 ** underscore
 ** plural
 
-h2. Tables:
+## Tables:
 
 * containers
 ** container_id varchar(255)
@@ -32,7 +32,7 @@ h2. Tables:
 ** latitude float
 ** created_at datetime
 
-h2. API:
+## API:
 
 REST
 JSON response
