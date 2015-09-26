@@ -25,7 +25,9 @@ class CoordinatesController extends Controller {
 		if(!!$container)
 		{
 			$return['success'] = true;
-			$return['data'] = $container->coordinates->first()->toArray();
+
+			if( !! $container->coordinates )
+				$return['data'] = $container->coordinates->first()->toArray();
 		}
 
 		return $return;
