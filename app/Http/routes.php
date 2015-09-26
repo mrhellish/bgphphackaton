@@ -11,7 +11,7 @@ $app->group(['prefix' => 'api', 'namespace' => 'App\Http\Controllers'], function
 	$app->delete('containers/{id}', 'ContainersController@destroy');
 
 	$app->get('coordinates', 'CoordinatesController@list');
-	$app->get('coordinates/{id}', 'CoordinatesController@get');
+	$app->get('coordinates/{container_id}', 'CoordinatesController@getByContainer');
 	$app->post('coordinates/{container_id}', 'CoordinatesController@create');
 	$app->put('coordinates/{id}', 'CoordinatesController@update');
 	$app->delete('coordinates/{id}', 'CoordinatesController@destroy');
