@@ -31,28 +31,29 @@
             </nav>
         </header>
 
-        <section id="container_track" class="container formContainer">
-            <h2>Track container</h2>
-            <div class="messages"></div>
-            <form action="/api/containers" method="post" id="container_track_form">
-                <label for="container_track_id">Container Tracking Number</label>
-                <input type="text" name="name" id="container_track_id">
-                <button class="btn btn-lg btn-primary">Track</button>  
-            </form>
-        </section>
-
         <section id="container_create" class="container formContainer">
             <h2>Create container</h2>
             <div class="messages"></div>
-            <form action="/api/coordinates/" method="get" id="container_create_form">
+            <form action="/api/containers/" method="post" id="container_create_form">
                 <label for="container_create_id">Container Tracking Number</label>
-                <input type="text" name="name" id="container_track_id">
+                <input type="text" name="name" id="container_create_id">
                 <button class="btn btn-lg btn-primary">Create</button>  
+            </form>
+        </section>
+
+        <section id="container_track" class="container formContainer">
+            <h2>Track container</h2>
+            <div class="messages"></div>
+            <form action="/api/coordinates/" method="get" id="container_track_form">
+                <label for="container_track_id">Container Tracking Number</label>
+                <input type="text" name="name" id="container_track_id">
+                <button class="btn btn-lg btn-primary">Track</button>  
             </form>
 
             <div id="track_map" style="width: 100%; height: 500px">
             </div>
         </section>
+
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -104,7 +105,7 @@
                     map.setCenter(marker.getPosition());
                 };
 
-                $('#container_track_form').on('submit', function(){
+                $('#container_create_form').on('submit', function(){
                     var $form = $(this);
                     var $formMessages = $form.parents('.formContainer').find('.messages');
                     sendRequest($form, function(response) {
@@ -122,7 +123,7 @@
                     return false;
                 });
 
-                $('#container_create_form').on('submit', function(){
+                $('#container_track_form').on('submit', function(){
                     var $form = $(this);
                     var $formMessages = $form.parents('.formContainer').find('.messages');
 
