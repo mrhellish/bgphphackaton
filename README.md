@@ -62,7 +62,7 @@ Methods:
 | /api/containers/:id             | PUT    | update given record           | name                              |
 | /api/containers/:id             | DELETE | delete record                 | -                                 |
 | /api/coordinates                | GET    | get list of all coordinates   | -                                 |
-| /api/coordinates                | POST   | create record                 | container_id, longitude, latitude |
-| /api/coordinates/:container_id  | GET    | get coordinates for container | -                                 |
+| /api/coordinates/:name          | POST   | create record                 | container_id, longitude, latitude |
+| /api/coordinates/:name          | GET    | get coordinates for container | -                                 |
 | /api/coordinates/:id            | PUT    | update given record           | container_id, longitude, latitude |
 | /api/coordinates/:id            | DELETE | delete record                 | -                                 |
