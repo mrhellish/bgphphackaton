@@ -10,6 +10,6 @@ class Container extends Model
 	
 	public function coordinates()
 	{
-		return $this->hasMany(Coordinates::class);
+		return $this->hasMany(Coordinate::class);
 	}
 }
