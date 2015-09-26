@@ -20,26 +20,34 @@
     <body>
 
         <header>
-            <h1>Container tracker</h1>
+            <nav class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <div class="page-header">
+                            <h1>Container tracker</h1>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </header>
 
-        <section id="container_track">
-            <h1>Track container</h1>
+        <section id="container_track" class="container">
+            <h2>Track container</h2>
             <div class="messages"></div>
             <form action="" method="post" id="container_track_form">
                 <label for="container_track_id">Container Tracking Number</label>
                 <input type="text" name="container_id" id="container_track_id">
-                <button>Track</button>  
+                <button type="button" class="btn btn-lg btn-primary">Track</button>  
             </form>
         </section>
 
-        <section id="container_create">
-            <h1>Create container</h1>
+        <section id="container_create" class="container">
+            <h2>Create container</h2>
             <div class="messages"></div>
             <form action="" method="post" id="container_create_form">
                 <label for="container_create_id">Container Tracking Number</label>
                 <input type="text" name="container_id" id="container_track_id">
-                <button>Create</button>  
+                <button type="button" class="btn btn-lg btn-primary">Create</button>  
             </form>
         </section>
 
