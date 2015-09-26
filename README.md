@@ -51,3 +51,18 @@ Methods:
         * container_id varchar(255)
     * Response:
         * Some container data that includes the last known location
+
+## Endpoints
+
+| URI                   | Verb   | Description                  | Params                            |
+| --------------------- | ------ | ---------------------------- | --------------------------------- |
+| /api/containers       | GET    | get list of all containers   | -                                 |
+| /api/containers       | POST   | create record                | name                              |
+| /api/containers/:id   | GET    | get single                   | -                                 |
+| /api/containers/:id   | PUT    | update given record          | name                              |
+| /api/containers/:id   | DELETE | delete record                | -                                 |
+| /api/coordinates      | GET    | get list of all coordinates  | -                                 |
+| /api/coordinates      | POST   | create record                | container_id, longitude, latitude |
+| /api/coordinates/:id  | GET    | get single                   | -                                 |
+| /api/coordinates/:id  | PUT    | update given record          | container_id, longitude, latitude |
+| /api/coordinates/:id  | DELETE | delete record                | -                                 |
