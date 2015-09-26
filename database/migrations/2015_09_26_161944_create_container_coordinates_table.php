@@ -12,7 +12,7 @@ class CreateContainerCoordinatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('containers_coordinates', function (Blueprint $table) {
+        Schema::create('container_coordinates', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('container_id')->unsigned();
             $table->float('longitude');
