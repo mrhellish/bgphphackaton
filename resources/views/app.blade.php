@@ -34,7 +34,7 @@
         <section id="container_create" class="container formContainer">
             <h2>Create container</h2>
             <div class="messages"></div>
-            <form action="/api/containers/" method="post" id="container_create_form">
+            <form action="/api/containers" method="post" id="container_create_form">
                 <label for="container_create_id">Container Tracking Number</label>
                 <input type="text" name="name" id="container_create_id">
                 <button class="btn btn-lg btn-primary">Create</button>  
@@ -94,8 +94,11 @@
                     if (typeof containerMarkers[containerData.id] != 'undefined') {
                         marker = containerMarkers[containerData.id];
                     } else {
+                        console.log(containerData);
+                        console.log(containerData.latitude);
+                        console.log(containerData.longitude);
                         var marker = new google.maps.Marker({
-                            position: {lat: containerData.latitude, lng: containerData.longitude},
+                            position: {lat: parseFloat(containerData.latitude), lng: parseFloat(containerData.longitude)},
                             map: map,
                             title: containerData.name
                         });
@@ -136,8 +139,6 @@
                             if ((typeof response.success != 'undefined') && response.success) {
                                 var containerData = response.data;
                                 containerData.name = name;
-                                containerData.longitude = 150.644;
-                                containerData.latitude = -34.397;
                                 initContainerOnMap(containerData);
                             } else if((typeof response.error != 'undefined') && response.error) {
                                 $formMessages.append($('<div/>').addClass('error').html(response.error));
