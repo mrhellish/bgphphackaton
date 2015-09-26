@@ -22,12 +22,10 @@ class CoordinatesController extends Controller {
 
 		$return = ['success' => false];
 
-		if(!!$container)
+		if($container && $container->coordinates)
 		{
 			$return['success'] = true;
-
-			if( $container->coordinates )
-				$return['data'] = $container->coordinates->first()->toArray();
+			$return['data'] = $container->coordinates->first()->toArray();
 		}
 
 		return $return;
