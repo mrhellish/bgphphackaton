@@ -54,15 +54,15 @@ Methods:
 
 ## Endpoints
 
-| URI                   | Verb   | Description                  | Params                            |
-| --------------------- | ------ | ---------------------------- | --------------------------------- |
-| /api/containers       | GET    | get list of all containers   | -                                 |
-| /api/containers       | POST   | create record                | name                              |
-| /api/containers/:id   | GET    | get single                   | -                                 |
-| /api/containers/:id   | PUT    | update given record          | name                              |
-| /api/containers/:id   | DELETE | delete record                | -                                 |
-| /api/coordinates      | GET    | get list of all coordinates  | -                                 |
-| /api/coordinates      | POST   | create record                | container_id, longitude, latitude |
-| /api/coordinates/:id  | GET    | get single                   | -                                 |
-| /api/coordinates/:id  | PUT    | update given record          | container_id, longitude, latitude |
-| /api/coordinates/:id  | DELETE | delete record                | -                                 |
+| URI                             | Verb   | Description                   | Params                            |
+| ------------------------------- | ------ | ----------------------------- | --------------------------------- |
+| /api/containers                 | GET    | get list of all containers    | -                                 |
+| /api/containers                 | POST   | create record                 | name                              |
+| /api/containers/:id             | GET    | get single                    | -                                 |
+| /api/containers/:id             | PUT    | update given record           | name                              |
+| /api/containers/:id             | DELETE | delete record                 | -                                 |
+| /api/coordinates                | GET    | get list of all coordinates   | -                                 |
+| /api/coordinates                | POST   | create record                 | container_id, longitude, latitude |
+| /api/coordinates/:container_id  | GET    | get coordinates for container | -                                 |
+| /api/coordinates/:id            | PUT    | update given record           | container_id, longitude, latitude |
+| /api/coordinates/:id            | DELETE | delete record                 | -                                 |
