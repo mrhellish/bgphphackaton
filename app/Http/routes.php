@@ -1,22 +1,17 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
-
 $app->get('/', 'AppController@index');
 
 $app->group(['prefix' => 'api'], function ($app) {
-    $app->get('/', function ()  {
-    });
 
-    $app->get('user/profile', function () {
-    });
+	$app->get('containers/{id}', 'ContainersController@get');
+	$app->post('containers', 'ContainersController@create');
+	$app->put('containers/{id}', 'ContainersController@update');
+	$app->delete('containers/{id}', 'ContainersController@destroy');
+
+	$app->get('coordinates/{id}', 'CoordinatesController@get');
+	$app->post('coordinates/{container_id}', 'CoordinatesController@create');
+	$app->put('coordinates/{id}', 'CoordinatesController@update');
+	$app->delete('coordinates/{id}', 'CoordinatesController@destroy');
+
 });
