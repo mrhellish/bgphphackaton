@@ -94,9 +94,6 @@
                     if (typeof containerMarkers[containerData.id] != 'undefined') {
                         marker = containerMarkers[containerData.id];
                     } else {
-                        console.log(containerData);
-                        console.log(containerData.latitude);
-                        console.log(containerData.longitude);
                         var marker = new google.maps.Marker({
                             position: {lat: parseFloat(containerData.latitude), lng: parseFloat(containerData.longitude)},
                             map: map,
