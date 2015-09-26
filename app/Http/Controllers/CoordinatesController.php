@@ -17,7 +17,7 @@ class CoordinatesController extends Controller {
 	public function getByContainer($name)
 	{
 		$container = Container::with(['coordinates' => function($q){
-			$q->orderBy('created_at', 'desc')->first(['longitude', 'latitude']);
+			$q->orderBy('created_at', 'desc')->first();
 		}])->where('name', $name)->first();
 
 		$return = ['success' => false];
@@ -25,7 +25,7 @@ class CoordinatesController extends Controller {
 		if(!!$container)
 		{
 			$return['success'] = true;
-			$return['data'] = $container->coordinates;
+			$return['data'] = $container->coordinates->first()->toArray();
 		}
 
 		return $return;

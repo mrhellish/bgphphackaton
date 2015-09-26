@@ -10,7 +10,7 @@ $app->group(['prefix' => 'api', 'namespace' => 'App\Http\Controllers'], function
 	$app->put('containers/{id}', 'ContainersController@update');
 	$app->delete('containers/{id}', 'ContainersController@destroy');
 
-	$app->get('coordinates', 'CoordinatesController@list');
+	$app->get('coordinates', 'CoordinatesController@index');
 	$app->get('coordinates/{container_id}', 'CoordinatesController@getByContainer');
 	$app->post('coordinates/{container_id}', 'CoordinatesController@create');
 	$app->put('coordinates/{id}', 'CoordinatesController@update');
