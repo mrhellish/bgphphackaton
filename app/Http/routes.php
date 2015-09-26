@@ -11,6 +11,12 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->welcome();
+$app->get('/', 'AppController@index');
+
+$app->group(['prefix' => 'api'], function ($app) {
+    $app->get('/', function ()  {
+    });
+
+    $app->get('user/profile', function () {
+    });
 });
