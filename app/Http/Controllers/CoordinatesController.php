@@ -34,36 +34,40 @@ class CoordinatesController extends Controller {
 	public function create($name, Request $request)
 	{
 		if( !$request->has('longitude') || !$request->has('latitude') )
-		{
 			return ['success' => false, 'error' => 'No name longitude and/or latitude.'];
-		}
 
 		$container = Container::where('name', $name)->first();
 
 		if( !$container )
-		{
-			return ['success' => false, 'error' => 'Container does not exist']
-		}
+			return $this->respondError('Container does not exist.');
 
-		return ['success' => true, 'data' => Coordinate::create(
+		$coordinates = Coordinate::create(
 			array_merge(['container_id' => $container->id], $request->only(['longitude', 'latitude']))
-		)];
+		);
+
+		return $this->respondSuccess($coordinates);
 	}
 
 	public function update($id, Request $request)
 	{
 		if( !$request->has('longitude') || !$request->has('latitude') )
-		{
-			return ['success' => false, 'error' => 'No name longitude and/or latitude.'];
-		}
+			return $this->respondError('No name longitude and/or latitude.');
 
-		return ['success' => true, 'data' => Coordinate::find($id)->update($request->only(['longitude', 'latitude']))];
+		$coordinates = Coordinate::find($id);
+
+		if( !$coordinates )
+			return $this->respondError('Coordinates do not exist.');
+
+		return $this->respondSuccess($coordinates);
 	}
 
 	public function destroy($id)
 	{
 		$coordinate = Coordinate::find($id)->delete();
 
-		return ['success' => $coordinate];
+		if( !$coordinates )
+			return $this->respondError('Coordinates do not exist.');
+
+		return $this->respondSuccess();
 	}
 }
