@@ -28,7 +28,7 @@ $factory->define(App\Container::class, function ($faker) {
 
 $factory->define(App\Coordinate::class, function ($faker) {
     return [
-    	'container_id'	=> $factory->create(App\Container::class)->id,
+    	'container_id'	=> factory(App\Container::class)->create()->id,
     	'longitude'	=> 42.65728149414061,
     	'latitude'	=> 23.314630126953126
     ];
