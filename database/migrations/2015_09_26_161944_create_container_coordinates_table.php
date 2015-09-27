@@ -19,7 +19,7 @@ class CreateContainerCoordinatesTable extends Migration
             $table->float('latitude');
             $table->timestamps();
 
-            $table->foreign('container_id')->references('id')->on('containers')->onDelete('cascade');
+            // $table->foreign('container_id')->references('id')->on('containers')->onDelete('cascade');
         });
     }
 

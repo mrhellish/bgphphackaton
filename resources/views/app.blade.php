@@ -1,11 +1,11 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Bootstrap 101 Template</title>
+        <title>Container tracker</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,19 +19,20 @@
     </head>
     <body>
 
-        <header>
-            <nav class="navbar navbar-inverse">
+        <header style="margin-bottom:60px;">
+            <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <div class="page-header">
-                            <h1>Container tracker</h1>
-                        </div>
+                      <a class="navbar-brand" href="#">
+                      Container Tracker
+                      </a>
                     </div>
                 </div>
             </nav>
         </header>
-
-        <section id="container_create" class="container formContainer">
+    <div class="container">
+    <div class="row">
+        <section id="container_create" class="container formContainer col-lg-6">
             <h2>Create container</h2>
             <div class="messages"></div>
             <form action="/api/containers" method="post" id="container_create_form">
@@ -51,13 +52,13 @@
             </form>
         </section>
 
-        <section id="container_track" class="container formContainer">
+        <section id="container_track" class="container formContainer col-lg-6">
             <h2>Track container</h2>
             <div class="messages"></div>
             <form action="/api/coordinates/" method="get" id="container_track_form">
                 <div class="form-group">
                     <label for="container_track_id">Container Tracking Number</label>
-                    <input type="text" name="name" id="container_track_id">
+                    <input type="text" name="name" id="container_track_id" class="form-control">
                 </div>
                 <button class="btn btn-lg btn-primary">Track</button>  
             </form>
@@ -65,8 +66,8 @@
             <div id="track_map" style="width: 100%; height: 500px">
             </div>
         </section>
-
-
+</div>
+</div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -87,6 +88,7 @@
             jQuery(function($){
                 var sendRequest = function($form, doneCallback) {
                     var $formMessages = $form.parents('.formContainer').find('.messages');
+                    console.log($form.serialize());
                     $.ajax({
                         url: $form.attr('action'),
                         type: $form.attr('method'),
@@ -94,7 +96,7 @@
                         data: $form.serialize()
                     }).done(doneCallback).fail(function(response) {
                         $formMessages.html('');
-                        $formMessages.append($('<div/>').addClass('error').html('Something went wrong.'));
+                        $formMessages.append($('<div/>').addClass('text-danger').html('Something went wrong.'));
                     });
                 };
 
@@ -124,12 +126,12 @@
                         $formMessages.html('');
                         if (response) {
                             if ((typeof response.success != 'undefined') && response.success) {
-                                $formMessages.append($('<div/>').addClass('success').html('Container is successfully created.'));
+                                $formMessages.append($('<div/>').addClass('text-success').html('Container is successfully created.'));
                             } else if((typeof response.error != 'undefined') && response.error) {
-                                $formMessages.append($('<div/>').addClass('error').html(response.error));
+                                $formMessages.append($('<div/>').addClass('text-danger').html(response.error));
                             }
                         } else {
-                            $formMessages.append($('<div/>').addClass('error').html('Container is not successfully created.'));                            
+                            $formMessages.append($('<div/>').addClass('text-danger').html('Container is not successfully created.'));                            
                         }
                     });
                     return false;
@@ -150,10 +152,10 @@
                                 containerData.name = name;
                                 initContainerOnMap(containerData);
                             } else if((typeof response.error != 'undefined') && response.error) {
-                                $formMessages.append($('<div/>').addClass('error').html(response.error));
+                                $formMessages.append($('<div/>').addClass('text-danger').html(response.error));
                             }
                         } else {
-                            $formMessages.append($('<div/>').addClass('error').html('Container is not found.'));                            
+                            $formMessages.append($('<div/>').addClass('text-danger').html('Container is not found.'));                            
                         }
                     });
                     $form.attr('action', action);

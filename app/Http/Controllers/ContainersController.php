@@ -33,6 +33,8 @@ class ContainersController extends Controller {
 		if( !$container )
 			return $this->respondError('Could not create a container.');
 
+		$container->coordinates()->create($request->only(['longitude', 'latitude']));
+
 		return $this->respondSuccess($container);
 	}
 
