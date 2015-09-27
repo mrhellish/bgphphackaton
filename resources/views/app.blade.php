@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+1<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -35,8 +35,18 @@
             <h2>Create container</h2>
             <div class="messages"></div>
             <form action="/api/containers" method="post" id="container_create_form">
-                <label for="container_create_id">Container Tracking Number</label>
-                <input type="text" name="name" id="container_create_id">
+                <div class="form-control">
+                    <label for="container_create_id">Container Tracking Number</label>
+                    <input type="text" name="name" id="container_create_id">
+                </div>
+                <div class="form-control">
+                    <label for="longitude">Container longitude</label>
+                    <input type="text" name="longitude" id="longitude">
+                </div>
+                <div class="form-control">
+                    <label for="latitude">Container latitude</label>
+                    <input type="text" name="latitude" id="latitude">
+                </div>
                 <button class="btn btn-lg btn-primary">Create</button>  
             </form>
         </section>
@@ -45,8 +55,10 @@
             <h2>Track container</h2>
             <div class="messages"></div>
             <form action="/api/coordinates/" method="get" id="container_track_form">
-                <label for="container_track_id">Container Tracking Number</label>
-                <input type="text" name="name" id="container_track_id">
+                <div class="form-control">
+                    <label for="container_track_id">Container Tracking Number</label>
+                    <input type="text" name="name" id="container_track_id">
+                </div>
                 <button class="btn btn-lg btn-primary">Track</button>  
             </form>
 
