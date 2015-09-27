@@ -16,10 +16,7 @@ class DatabaseSeeder extends Seeder
 
         // $this->call('UserTableSeeder');
 
-        for($i = 0; $i < 11; $i++)
-        {
-            $factory->create(App\Coordinate::class);
-        }
+        factory(App\Coordinate::class, 50)->create();    
 
         Model::reguard();
     }
