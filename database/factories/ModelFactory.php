@@ -19,3 +19,17 @@ $factory->define(App\User::class, function ($faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Container::class, function ($faker) {
+    return [
+        'name' => $faker->name,
+    ];
+});
+
+$factory->define(App\Coordinate::class, function ($faker) {
+    return [
+    	'container_id'	=> $factory->create(App\Container::class)->id,
+    	'longitude'	=> 42.65728149414061,
+    	'latitude'	=> 23.314630126953126
+    ];
+});
