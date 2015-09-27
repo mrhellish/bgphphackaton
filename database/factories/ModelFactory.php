@@ -22,7 +22,7 @@ $factory->define(App\User::class, function ($faker) {
 
 $factory->define(App\Container::class, function ($faker) {
     return [
-        'name' => $faker->name,
+        'name' => 'test'. md5(time()),
     ];
 });
 
