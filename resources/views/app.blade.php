@@ -35,17 +35,17 @@
             <h2>Create container</h2>
             <div class="messages"></div>
             <form action="/api/containers" method="post" id="container_create_form">
-                <div class="form-control">
+                <div class="form-group">
                     <label for="container_create_id">Container Tracking Number</label>
-                    <input type="text" name="name" id="container_create_id">
+                    <input type="text" name="name" id="container_create_id" class="form-control">
                 </div>
-                <div class="form-control">
+                <div class="form-group">
                     <label for="longitude">Container longitude</label>
-                    <input type="text" name="longitude" id="longitude">
+                    <input type="text" name="longitude" id="longitude" class="form-control">
                 </div>
-                <div class="form-control">
+                <div class="form-group">
                     <label for="latitude">Container latitude</label>
-                    <input type="text" name="latitude" id="latitude">
+                    <input type="text" name="latitude" id="latitude" class="form-control">
                 </div>
                 <button class="btn btn-lg btn-primary">Create</button>  
             </form>
@@ -55,7 +55,7 @@
             <h2>Track container</h2>
             <div class="messages"></div>
             <form action="/api/coordinates/" method="get" id="container_track_form">
-                <div class="form-control">
+                <div class="form-group">
                     <label for="container_track_id">Container Tracking Number</label>
                     <input type="text" name="name" id="container_track_id">
                 </div>
